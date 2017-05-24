@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="w7G-IH-3Yj">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uir-FB-05p" customClass="AZEmptyStateView" customModule="Example" customModuleProvider="target">
+                                <rect key="frame" x="84" y="180.5" width="206" height="306.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="ic_emoji_thinking"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="message" value="Something went wrong..."/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="hideButton" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="buttonText" value="Try Again"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="tryAgain" destination="BYZ-38-t0r" eventType="touchUpInside" id="0Ii-cG-fG2"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="uir-FB-05p" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="RDE-1Q-rhn"/>
+                            <constraint firstItem="uir-FB-05p" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.46" id="Rl8-5a-9ay"/>
+                            <constraint firstItem="uir-FB-05p" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="c4b-fb-ZlQ"/>
+                            <constraint firstItem="uir-FB-05p" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.55" id="fyI-Uz-jMk"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="538" y="137"/>
+        </scene>
+        <!--My Tasks-->
+        <scene sceneID="z5U-2d-qzX">
+            <objects>
+                <viewController id="cCQ-m8-mL9" customClass="ViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="I4G-d1-48z"/>
+                        <viewControllerLayoutGuide type="bottom" id="Uaw-HC-rSS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kVs-14-dtf">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BPf-TU-4Aa" customClass="MyEmptyStateView" customModule="Example" customModuleProvider="target">
+                                <rect key="frame" x="38" y="137.5" width="300" height="249"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="ic_tasks"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="buttonText" value="Add Task+"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="message" value="It looks like you have completed all of your tasks."/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="buttonTint">
+                                        <color key="value" red="0.14314150810000001" green="0.7248433232" blue="0.59879440070000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="addTask:" destination="cCQ-m8-mL9" eventType="touchUpInside" id="Dg8-I0-QoQ"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.28697682186030266" green="0.42121598770338675" blue="0.54027123598877447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="BPf-TU-4Aa" firstAttribute="width" secondItem="kVs-14-dtf" secondAttribute="width" multiplier="0.8" id="A8I-0U-XGV"/>
+                            <constraint firstItem="BPf-TU-4Aa" firstAttribute="centerX" secondItem="kVs-14-dtf" secondAttribute="centerX" id="j6a-PZ-hMw"/>
+                            <constraint firstItem="BPf-TU-4Aa" firstAttribute="centerY" secondItem="kVs-14-dtf" secondAttribute="centerY" constant="-40" id="pEX-iv-nyF"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="My Tasks" id="AIm-Xi-OeO"/>
+                    <connections>
+                        <outlet property="emptyState" destination="BPf-TU-4Aa" id="SgY-cE-a6K"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W81-3P-aBY" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2665" y="135"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Wm1-2J-UCt">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="w7G-IH-3Yj" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" translucent="NO" id="fgf-aY-RbJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.19651117920875549" green="0.28891143202781677" blue="0.3680020272731781" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="cCQ-m8-mL9" kind="relationship" relationship="rootViewController" id="bkD-Hp-pIx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R0a-Cx-wMq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1557.5999999999999" y="135.38230884557723"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ic_emoji_thinking" width="512" height="512"/>
+        <image name="ic_tasks" width="256" height="256"/>
+    </resources>
+</document>
