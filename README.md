@@ -2,7 +2,7 @@
 Making empty state simple.
 
 ## Screenshots
-
+<img src="Screenshots/screenshot1.png" width="300" />     <img src="Screenshots/screenshot2.png" width="300" />
 
 ## Installation
 
@@ -21,6 +21,7 @@ Simply drag and drop the ```Sources``` folder to your project.
 
 ### Using Interface Builder:
 
+<img src="Screenshots/howto.gif" width="700" />
 
 ### Programmatically:
 
