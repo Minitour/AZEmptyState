@@ -11,6 +11,69 @@ import UIKit
 @IBDesignable
 class MyEmptyStateView: AZEmptyStateView{
     
+    let defaultFont = "Helvetica-Light"
+    
+    
+    @IBInspectable
+    public var messageFontSize: CGFloat = 16.0{
+        didSet{
+            if let currentFontName: String = textLabel?.font.fontName
+                , let font = UIFont(name: currentFontName, size: messageFontSize){
+                textLabel.font = font
+            }
+        }
+    }
+    
+    @IBInspectable
+    public var messageFont: String{
+        get{
+            return textLabel.font.fontName
+        }set{
+            if let font = UIFont(name: newValue, size: messageFontSize){
+                textLabel.font = font
+            }
+        }
+    }
+    
+    @IBInspectable
+    public var messageTextColor: UIColor{
+        get{
+            return textLabel.textColor
+        }set{
+            textLabel.textColor = newValue
+        }
+    }
+    
+    @IBInspectable
+    public var imageRatioMultiplier: CGFloat = 0.5{
+        didSet{
+            if imageConstraint != nil {
+                removeConstraint(imageConstraint)
+            }
+            
+            if stackView != nil{
+                imageConstraint = imageView.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: imageRatioMultiplier)
+                imageConstraint.isActive = true
+            }
+        }
+    }
+    
+    // stackview ref
+    fileprivate var stackView: UIStackView!
+    
+    // image constraint ref
+    fileprivate var imageConstraint: NSLayoutConstraint!
+    
+    // update button background
+    override var buttonTint: UIColor{
+        set{
+            super.buttonTint = newValue
+            self.button.backgroundColor = newValue
+        }get{
+            return super.buttonTint
+        }
+    }
+    
     //Use image with content mode of `scale aspect fit`
     override func setupImage() -> UIImageView {
         let imageView = UIImageView()
@@ -34,12 +97,15 @@ class MyEmptyStateView: AZEmptyStateView{
     
     //setup the stack view to your liking
     override func setupStack(_ imageView: UIImageView, _ textLabel: UILabel, _ button: UIButton) -> UIStackView {
-        let stack = super.setupStack(imageView, textLabel, button)
-        stack.spacing = 14
-        stack.alignment = .center
-        button.widthAnchor.constraint(equalTo: stack.widthAnchor, multiplier: 0.8).isActive = true
-        imageView.widthAnchor.constraint(equalTo: stack.widthAnchor, multiplier: 0.5).isActive = true
-        return stack
+        stackView = super.setupStack(imageView, textLabel, button)
+        stackView.spacing = 14
+        stackView.alignment = .center
+        button.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: 0.8).isActive = true
+        
+        imageConstraint = imageView.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: imageRatioMultiplier)
+        imageConstraint.isActive = true
+        
+        return stackView
     }
 }
 

@@ -62,13 +62,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BPf-TU-4Aa" customClass="MyEmptyStateView" customModule="Example" customModuleProvider="target">
-                                <rect key="frame" x="38" y="137.5" width="300" height="249"/>
+                                <rect key="frame" x="38" y="177" width="300" height="170.5"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="ic_tasks"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="buttonText" value="Add Task+"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="message" value="It looks like you have completed all of your tasks."/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="ic_users"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="buttonText" value="Find Users"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="message" value="It seems like you are not following anyone"/>
                                     <userDefinedRuntimeAttribute type="color" keyPath="buttonTint">
-                                        <color key="value" red="0.14314150810000001" green="0.7248433232" blue="0.59879440070000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="value" red="0.23406299948692322" green="0.49801182746887207" blue="0.94660085439682007" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="imageRatioMultiplier">
+                                        <real key="value" value="0.29999999999999999"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="messageFontSize">
+                                        <real key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="messageTextColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
@@ -76,7 +85,7 @@
                                 </connections>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.28697682186030266" green="0.42121598770338675" blue="0.54027123598877447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="BPf-TU-4Aa" firstAttribute="width" secondItem="kVs-14-dtf" secondAttribute="width" multiplier="0.8" id="A8I-0U-XGV"/>
                             <constraint firstItem="BPf-TU-4Aa" firstAttribute="centerX" secondItem="kVs-14-dtf" secondAttribute="centerX" id="j6a-PZ-hMw"/>
@@ -90,7 +99,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W81-3P-aBY" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2665" y="135"/>
+            <point key="canvasLocation" x="2445.5999999999999" y="134.48275862068968"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Wm1-2J-UCt">
@@ -114,6 +123,6 @@
     </scenes>
     <resources>
         <image name="ic_emoji_thinking" width="512" height="512"/>
-        <image name="ic_tasks" width="256" height="256"/>
+        <image name="ic_users" width="512" height="512"/>
     </resources>
 </document>
