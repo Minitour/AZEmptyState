@@ -9,11 +9,20 @@
 import UIKit
 
 @IBDesignable
-public class AZEmptyStateView: UIControl{
+open class AZEmptyStateView: UIControl{
+    
+    /// The image view
+    fileprivate(set) open var imageView: UIImageView!
+    
+    /// The text label
+    fileprivate(set) open var textLabel: UILabel!
+    
+    /// The button
+    fileprivate(set) open var button: UIButton!
     
     /// The empty state image
     @IBInspectable
-    public var image: UIImage{
+    open var image: UIImage{
         get{
             return imageView.image!
         }set{
@@ -21,10 +30,9 @@ public class AZEmptyStateView: UIControl{
         }
     }
     
-    
     /// The empty state message
     @IBInspectable
-    public var message: String{
+    open var message: String{
         get{
             return textLabel.text ?? ""
         }set{
@@ -32,10 +40,9 @@ public class AZEmptyStateView: UIControl{
         }
     }
     
-    
     /// The button's text
     @IBInspectable
-    public var buttonText: String{
+    open var buttonText: String{
         get{
             return button.title(for: [])!
         }set{
@@ -43,8 +50,9 @@ public class AZEmptyStateView: UIControl{
         }
     }
     
+    /// The button tint color
     @IBInspectable
-    public var buttonTint: UIColor{
+    open var buttonTint: UIColor{
         get{
             return button.tintColor
         }set{
@@ -53,26 +61,13 @@ public class AZEmptyStateView: UIControl{
         }
     }
     
-    
     /// Is the button visable
     @IBInspectable
-    public var buttonHidden: Bool = false{
+    open var buttonHidden: Bool = false{
         didSet{
             button.isHidden = buttonHidden
         }
     }
-    
-    fileprivate(set) open var imageView: UIImageView!
-    
-    fileprivate(set) open var textLabel: UILabel!
-    
-    fileprivate(set) open var button: UIButton!
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setup()
-    }
-    
     
     /// Convenience initailizer
     ///
@@ -80,7 +75,7 @@ public class AZEmptyStateView: UIControl{
     ///   - image: The image of the empty state
     ///   - message: The message of the empty sate
     ///   - buttonText: The text on the button, if nil then button will be hidden.
-    public convenience init(image: UIImage ,message: String, buttonText: String? = nil){
+    convenience public init(image: UIImage ,message: String, buttonText: String? = nil){
         self.init(frame: CGRect.zero)
         self.image = image
         self.message = message
@@ -91,11 +86,27 @@ public class AZEmptyStateView: UIControl{
         }
     }
     
+    
+    /// Init with Frame
+    ///
+    /// - Parameter frame: frame for the view.
+    override public init(frame: CGRect) {
+        super.init(frame: frame)
+        setup()
+    }
+    
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
     }
     
+    
+    /// When adding a target, it will be automatically added to the button.
+    ///
+    /// - Parameters:
+    ///   - target: The target object—that is, the object whose action method is called. If you specify nil, UIKit searches the responder chain for an object that responds to the specified action message and delivers the message to that object.
+    ///   - action: A selector identifying the action method to be called. You may specify a selector whose signature matches any of the signatures in UIControl. This parameter must not be nil.
+    ///   - controlEvents: A bitmask specifying the control-specific events for which the action method is called. Always specify at least one constant. For a list of possible constants, see UIControlEvents.
     final override public func addTarget(_ target: Any?, action: Selector, for controlEvents: UIControlEvents) {
         button.addTarget(target, action: action, for: controlEvents)
     }
@@ -103,7 +114,7 @@ public class AZEmptyStateView: UIControl{
     /// A function that is called when it's time to setup the label.
     ///
     /// - Returns: The label view.
-    internal func setupLabel()->UILabel{
+    open func setupLabel()->UILabel{
         let textLabel = UILabel()
         textLabel.adjustsFontSizeToFitWidth = true
         textLabel.textAlignment = .center
@@ -115,7 +126,7 @@ public class AZEmptyStateView: UIControl{
     /// A function that is called when it's time to setup the image view.
     ///
     /// - Returns: The image view.
-    internal func setupImage()->UIImageView{
+    open func setupImage()->UIImageView{
         return UIImageView()
     }
     
@@ -123,7 +134,7 @@ public class AZEmptyStateView: UIControl{
     /// A function that is called when it's time to setup the button.
     ///
     /// - Returns: The button.
-    internal func setupButton()->UIButton{
+    open func setupButton()->UIButton{
         let button = UIButton(type: .system)
         button.layer.cornerRadius = 5
         button.layer.borderColor = button.tintColor.cgColor
@@ -139,7 +150,7 @@ public class AZEmptyStateView: UIControl{
     ///   - textLabel: The label of the empty state.
     ///   - button: The button of the empty state.
     /// - Returns: The stack view.
-    internal func setupStack(_ imageView: UIImageView,_ textLabel: UILabel,_ button: UIButton)->UIStackView{
+    open func setupStack(_ imageView: UIImageView,_ textLabel: UILabel,_ button: UIButton)->UIStackView{
         let stackView = UIStackView(arrangedSubviews: [imageView,textLabel,button])
         stackView.axis = .vertical
         stackView.alignment = .fill
@@ -149,16 +160,21 @@ public class AZEmptyStateView: UIControl{
     }
     
     
-    fileprivate func setup(){
+    /// The setup function is called from the initializers
+    private func setup(){
         backgroundColor = .clear
+        
+        // Setup views
         imageView = setupImage()
         textLabel = setupLabel()
         button = setupButton()
         let stackView = setupStack(imageView,textLabel,button)
         
+        // make imageView square
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor, multiplier: 1.0).isActive = true
         
+        // add constraints to stackview
         addSubview(stackView)
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.topAnchor.constraint(equalTo: topAnchor).isActive = true
@@ -167,5 +183,5 @@ public class AZEmptyStateView: UIControl{
         stackView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         
     }
-
+    
 }
