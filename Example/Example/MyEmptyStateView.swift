@@ -48,7 +48,7 @@ class MyEmptyStateView: AZEmptyStateView{
     public var imageRatioMultiplier: CGFloat = 0.5{
         didSet{
             if imageConstraint != nil {
-                removeConstraint(imageConstraint)
+                imageConstraint.isActive = false
             }
             
             if stackView != nil{

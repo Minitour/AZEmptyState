@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uir-FB-05p" customClass="AZEmptyStateView" customModule="Example" customModuleProvider="target">
-                                <rect key="frame" x="84" y="180.5" width="206" height="306.5"/>
+                                <rect key="frame" x="84.5" y="180" width="206" height="307"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="image" keyPath="image" value="ic_emoji_thinking"/>
@@ -49,7 +49,7 @@
             </objects>
             <point key="canvasLocation" x="538" y="137"/>
         </scene>
-        <!--My Tasks-->
+        <!--Friends-->
         <scene sceneID="z5U-2d-qzX">
             <objects>
                 <viewController id="cCQ-m8-mL9" customClass="ViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
@@ -62,19 +62,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BPf-TU-4Aa" customClass="MyEmptyStateView" customModule="Example" customModuleProvider="target">
-                                <rect key="frame" x="38" y="177" width="300" height="170.5"/>
+                                <rect key="frame" x="37.5" y="232.5" width="300" height="139.5"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="image" keyPath="image" value="ic_users"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="buttonText" value="Find Users"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="buttonText" value="Find Friends!"/>
                                     <userDefinedRuntimeAttribute type="string" keyPath="message" value="It seems like you are not following anyone"/>
                                     <userDefinedRuntimeAttribute type="color" keyPath="buttonTint">
                                         <color key="value" red="0.23406299948692322" green="0.49801182746887207" blue="0.94660085439682007" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="imageRatioMultiplier">
-                                        <real key="value" value="0.29999999999999999"/>
+                                        <real key="value" value="0.20000000000000001"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="messageFontSize">
-                                        <real key="value" value="16"/>
+                                        <real key="value" value="15"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="messageTextColor">
                                         <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -85,14 +85,14 @@
                                 </connections>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.9392453434258482" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="BPf-TU-4Aa" firstAttribute="width" secondItem="kVs-14-dtf" secondAttribute="width" multiplier="0.8" id="A8I-0U-XGV"/>
                             <constraint firstItem="BPf-TU-4Aa" firstAttribute="centerX" secondItem="kVs-14-dtf" secondAttribute="centerX" id="j6a-PZ-hMw"/>
-                            <constraint firstItem="BPf-TU-4Aa" firstAttribute="centerY" secondItem="kVs-14-dtf" secondAttribute="centerY" constant="-40" id="pEX-iv-nyF"/>
+                            <constraint firstItem="BPf-TU-4Aa" firstAttribute="centerY" secondItem="kVs-14-dtf" secondAttribute="centerY" id="pEX-iv-nyF"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="My Tasks" id="AIm-Xi-OeO"/>
+                    <navigationItem key="navigationItem" title="Friends" id="AIm-Xi-OeO"/>
                     <connections>
                         <outlet property="emptyState" destination="BPf-TU-4Aa" id="SgY-cE-a6K"/>
                     </connections>
@@ -106,10 +106,10 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="w7G-IH-3Yj" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="fgf-aY-RbJ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" translucent="NO" id="fgf-aY-RbJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.19651117920875549" green="0.28891143202781677" blue="0.3680020272731781" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.23137254901960785" green="0.34901960784313724" blue="0.59607843137254901" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
