@@ -107,7 +107,7 @@ open class AZEmptyStateView: UIControl{
     ///   - target: The target object—that is, the object whose action method is called. If you specify nil, UIKit searches the responder chain for an object that responds to the specified action message and delivers the message to that object.
     ///   - action: A selector identifying the action method to be called. You may specify a selector whose signature matches any of the signatures in UIControl. This parameter must not be nil.
     ///   - controlEvents: A bitmask specifying the control-specific events for which the action method is called. Always specify at least one constant. For a list of possible constants, see UIControlEvents.
-    final override public func addTarget(_ target: Any?, action: Selector, for controlEvents: UIControlEvents) {
+    final override public func addTarget(_ target: Any?, action: Selector, for controlEvents: UIControl.Event) {
         button.addTarget(target, action: action, for: controlEvents)
     }
     
